@@ -5,75 +5,87 @@
 // Ejemplo:
 
 
-package ui; // No olvidar especificar el paquete / carpeta de nuestro programa
+package ui;
 
-import java.util.Scanner; // Para poder usar Scanner, debemos importarlo
+import java.util.Scanner;
 
 public class AtlasPuntuaciones {
 
-	// Declaración del Escaner que nos ayudará en todo el programa
-	private Scanner escaner;
+    private Scanner escaner;
 
-	// Declaración de nuestras constantes a utilizar
-
-
-	private AtlasPuntuaciones() {
-		escaner = new Scanner(System.in);
-	}
-	
-	
-	public void run()
-	{
-		// Declaracion de todas las variables a usar en el programa
-
-
-		// Notificacion al usuario de la solicitud de dato
-
-		// Capturamos el dato con nuestro Scanner (que se llama, escaner)
-
-
-
-		// Realizamos los cálculos delegandolos a los métodos
-
-
-		// Notificación al usuario de los resultados
-
-
-	}
-
-	public static void main(String[] args) {
-		AtlasPuntuaciones mainApp = new AtlasPuntuaciones();
-		mainApp.run();
-	}
-
-	/**
-	 * Descripción: El método calcularSumaTotal permite ...
-	 * @param int[] numeros
-	 * @return 
-	 */
-    public int calcularSumaTotal(int[] numeros) {
-        // Completar
+    private AtlasPuntuaciones() {
+        escaner = new Scanner(System.in);
     }
 
-	/**
-	 * Descripción: El método calcularPromedio permite ...
-	 * @param int[] numeros
-	 * @return 
-	 */
-    public double calcularPromedio(int[] numeros) {
-        // Completar
+    public void run() {
+        int numjugadores, numrondas;
+
+        System.out.println("# Ingrese el numero de jugadores.");
+        System.out.print("> ");
+        numjugadores = escaner.nextInt();
+        int[] puntaje = new int[numjugadores];
+
+        System.out.println("# Ingrese el numero de rondas.");
+        System.out.print("> ");
+        numrondas = escaner.nextInt();
+
+        int suma = 0;
+
+        for (int i = 0; i < numjugadores; i++) {
+
+            for (int j = 0; j < numrondas; j++) {
+                System.out.println("# Ingrese el puntaje del jugador " + (i + 1) + " de la ronda " + (j + 1));
+                System.out.print("> ");
+                puntaje[i] = escaner.nextInt();
+
+                suma += puntaje[i];
+            }
+            double prom = calcularPromedio(puntaje, numrondas);
+            System.out.println("");
+            System.out.println("# El puntaje total del jugador " + (i + 1) + " es de: " + suma + " y el promedio es de: " + prom);
+            System.out.println("");
+        }
     }
 
-	/**
-	 * Descripción: El método encontrarMayor permite ...
-	 * @param double[] numeros
-	 * @return 
-	 */
+    public static void main(String[] args) {
+        AtlasPuntuaciones mainApp = new AtlasPuntuaciones();
+        mainApp.run();
+    }
+
+    /**
+     * Descripción: El método encontrarMayor permite ...
+     * @param double[] numeros
+     * @return 
+     */
+	public int calcularSumaTotal(int[] numeros) {
+        int suma = 0;
+
+        for (int i = 0; i < numeros.length; i++) {
+            suma += numeros[i];
+        }
+        return suma;
+    }
+
+    /**
+     * Descripción: El método encontrarMayor permite ...
+     * @param double[] numeros
+     * @return 
+     */
+	public double calcularPromedio(int[] numeros, int numrondas) {
+        int sum = 0;
+
+        for (int i = 0; i < numrondas; i++) {
+            suma += numeros[i];
+        }
+        return (double) suma / numrondas;
+    }
+
+    /**
+     * Descripción: El método encontrarMayor permite ...
+     * @param double[] numeros
+     * @return 
+     */
     public double encontrarMayor(double[] numeros) {
         // Completar
-    }
-
-	
-
-	
-}
+        return 0;
+	}
