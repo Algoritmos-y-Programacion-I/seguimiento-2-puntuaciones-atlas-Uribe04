@@ -61,8 +61,8 @@ public class AtlasPuntuaciones {
         System.out.println("# Ingrese el numero de jugadores. (maximo 10)");
         System.out.print("> ");
         numjugadores = escaner.nextInt();
-        if (numjugadores > 10) {
-            System.out.println("# !ERROR! el numero maximo de jugadores es 10, porfavor digite denuevo. ");
+        while (numjugadores < 1 || numjugadores > 10) {
+            System.out.println("# !ERROR! el numero maximo de jugadores es 10, porfavor digite denuevo.");
             System.out.print("> ");
             numjugadores = escaner.nextInt();
         }
@@ -71,20 +71,20 @@ public class AtlasPuntuaciones {
         System.out.println("# Ingrese el numero de rondas. (maximo 5)");
         System.out.print("> ");
         numrondas = escaner.nextInt();
-        if (numrondas > 5) {
-            System.out.println("# !ERROR! el numero maximo de rondas es 5, porfavor digite denuevo. ");
+        while (numrondas < 1 || numrondas > 5) {
+            System.out.println("# !ERROR! el numero maximo de rondas es 5, porfavor digite denuevo.");
             System.out.print("> ");
             numrondas = escaner.nextInt();
         }
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < numjugadores; i++) {
             int suma = 0; 
-            for (int j = 0; j < 5; j++) {
+            for (int j = 0; j < numrondas; j++) {
                 System.out.println("# Ingrese el puntaje del jugador " + (i + 1) + " en la ronda " + (j + 1));
                 System.out.print("> ");
                 int puntaje = escaner.nextInt();
-                if (puntaje > 100) {
-                    System.out.println("# !ERROR! el puntaje maximo es de 100, porfavor digite denuevo. ");
+                while (puntaje < 1 || puntaje > 100) {
+                    System.out.println("# !ERROR! el numero maximo de puntaje es de 100, porfavor digite denuevo.");
                     System.out.print("> ");
                     puntaje = escaner.nextInt();
                 }
