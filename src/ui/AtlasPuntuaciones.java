@@ -83,7 +83,7 @@ public class AtlasPuntuaciones {
                 System.out.println("# Ingrese el puntaje del jugador " + (i + 1) + " en la ronda " + (j + 1));
                 System.out.print("> ");
                 int puntaje = escaner.nextInt();
-                while (puntaje < 1 || puntaje > 100) {
+                while (puntaje > 100) {
                     System.out.println("# !ERROR! el numero maximo de puntaje es de 100, porfavor digite denuevo.");
                     System.out.print("> ");
                     puntaje = escaner.nextInt();
